@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Saya</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* RESET & DOKUMEN DASAR */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 0 20px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* CONTAINER UTAMA */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+
+    /* 1. NAVBAR */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 25px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border-radius: 50px;
+      margin-top: 20px;
+      position: sticky;
+      top: 20px;
+      z-index: 100;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      font-size: 0.85rem;
+      color: #aaa;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #fff;
+    }
+
+    .btn-hire {
+      background-color: #fff;
+      color: #000;
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+
+    .btn-hire:hover {
+      transform: scale(1.05);
+    }
+
+    /* SEKSI UMUM */
+    section {
+      padding: 60px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+    }
+
+    /* 2. HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+
+    .hero-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 20px;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    /* 3. WORK GALLERY */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #161616;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 20px;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .card-img {
+      width: 100%;
+      height: 160px;
+      background-color: #222;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #aaa;
+    }
+
+    /* 4. WHAT I CAN DO */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      background: #161616;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 25px;
+    }
+
+    .skill-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .tag {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      color: #ccc;
+    }
+
+    /* 5. ABOUT ME */
+    .stats-grid {
+      display: flex;
+      gap: 30px;
+      margin: 20px 0 30px;
+    }
+
+    .stat-item h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .stat-item p {
+      font-size: 0.75rem;
+      color: #888;
+      text-transform: uppercase;
+    }
+
+    .btn-download {
+      display: inline-block;
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      transition: background 0.3s;
+    }
+
+    .btn-download:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    /* 6. CONTACT */
+    .contact-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+      max-width: 350px;
+    }
+
+    .contact-box {
+      background: #161616;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-size: 0.85rem;
+      color: #ccc;
+    }
+
+    /* RESPONSIVE DESAIN UTK HP */
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        gap: 12px;
+        border-radius: 20px;
+      }
+      .contact-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- 1. NAVIGATION BAR -->
+    <header>
+      <div class="logo">AFIFAH FIRA NABILA</div>
+      <nav>
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#skills">What I Can Do</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="btn-hire">Hire Me</a>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section class="hero">
+      <!-- Ganti src dengan foto profil kamu -->
+      <img src="WhatsApp Image 2026-10-30 at 10.31.42.jpeg" alt="Foto Profil" class="hero-img">
+      <h1>AFIFAH FIRA NABILA</h1>
+      <p style="color: #aaa; margin-top: 10px;">NIM: 26051214122</p>
+      <p style="color: #aaa; margin-top: 10px;">Mahasiswa Sistem Informasi</p>
+    </section>
+
+
+      </div>
+    </section>
+
+    <!-- 4. WHAT I CAN DO -->
+    <section id="skills">
+      <div class="section-tag">My Capabilities</div>
+      <h2 class="section-title">What I Can Do</h2>
+      <div class="skills-grid">
+        
+        <div class="skill-card">
+          <div class="skill-number">01</div>
+          <h3>Pemrograman & IT Basic</h3>
+          <p style="font-size: 0.85rem; color: #aaa; margin-top: 8px;">
+            Membangun aplikasi web yang fungsional, responsif, dan mudah digunakan.
+          </p>
+          <div class="tags">
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">PHP</span>
+            <span class="tag">MySQL</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-number">02</div>
+          <h3>Design</h3>
+          <p style="font-size: 0.85rem; color: #aaa; margin-top: 8px;">
+            Membuat desain yang menarik dan user-friendly untuk berbagai platform.
+          </p>
+          <div class="tags">
+            <span class="tag">Video Editing</span>
+            <span class="tag">Graphic Design</span>
+            <span class="tag">Prototyping</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. ABOUT ME -->
+    <section id="about">
+      <div class="section-tag">About Me</div>
+      <h2 class="section-title">AFIFAH FIRA NABILA</h2>
+      
+      <p style="color: #ccc; max-width: 700px;">
+        Saya merupakan mahasiswa Sistem Informasi Universitas Negeri Surabaya. Saya senang mempelajari hal baru serta bekerja sama dengan orang lain. Saya ingin meningkatkan kemampuan komunikasi, kepemimpinan, dan manajemen waktu melalui pengalaman organisasi maupun akademik.
+      </p>
+
+
+      <a href="CV ATS AFIFAH FIRA NABILA .pdf" class="btn-download">Download Resume &rarr;</a>
+    </section>
+
+    <!-- 6. CONTACT -->
+    <section id="contact" style="border-bottom: none;">
+      <div class="contact-container">
+        <div>
+          <div class="section-tag">Get In Touch</div>
+          <h2 style="font-size: 2.2rem; font-weight: 700;">LET'S WORK<br>TOGETHER</h2>
+        </div>
+
+        <div class="contact-links">
+          <div class="contact-box">📧 afifahfiranabila02@gmail.com</div>
+          <div class="contact-box">🌐 github.com/AFIFAH FIRA NABILA (26051214122-design)</div>
+          <div class="contact-box">💼 linkedin.com/in/afifah_fira_nabila</div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
